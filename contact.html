@@ -1,1 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Contacts</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
+  <nav aria-label="Main navigation">
+    <ul>
+      <li><a href="index.html">Main Page</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="skills.html">My Skills</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h2>My Contacts</h2>
+
+    <div class="card-row">
+      <section class="card">
+        <h3>Get in touch</h3>
+        <!-- Replace the email below with your own -->
+        <p><strong>Email:</strong> mbalberto@feudiliman.edu.ph</p>
+        <p><strong>School:</strong> FEU Diliman, Quezon City</p>
+      </section>
+
+      <section class="card">
+        <h3>Send a message</h3>
+        <!-- Contact form (Flexbox, one direction: fields stacked) -->
+        <form action="#" method="post">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+
+          <button type="submit">Send message</button>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Ma. Elysse B. Alberto. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
