@@ -284,4 +284,12 @@ footer {
   form button {
     align-self: stretch;
   }
+@media (prefers-reduced-motion: reduce) {
+   nav a,
+   .btn {
+      transition: none;
+   }
+.btn:hover {
+      transform: none;
+}
 }
