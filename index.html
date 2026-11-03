@@ -15,40 +15,32 @@
 
   <nav aria-label="Main navigation">
     <h2>Menu</h2>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
+    <ul>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="skills.html">My Skills</a></li>
+      <li><a href="contact.html">My Contacts</a></li>
+    </ul>
   </nav>
 
   <main>
-    <section id="about">
-      <h2>About Me</h2>
-      <p>
-        My name is Maria Elysse B. Alberto from DF21,
-        I'm currently taking Financial Management & Business Analytics
-        in FEU Diliman here in Quezon City.
-      </p>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <form action="#" method="post">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required>
-
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-
-        <button type="submit">Send message</button>
-      </form>
-    </section>
+    <div class="card-row">
+      <section class="card">
+        <h2>Welcome!</h2>
+        <p>
+          Hi, I'm Maria Elysse. This is my web design portfolio, where I
+          share who I am, what I can do, and how to reach me.
+        </p>
+      </section>
+      <section class="card">
+        <h2>Explore</h2>
+        <p>Use the menu at the top to visit each page.</p>
+        <p><a class="button" href="about.html">Get to know me</a></p>
+      </section>
+    </div>
   </main>
 
   <footer>
-    <p>&copy; 2026 Your Name. All rights reserved.</p>
+    <p>&copy; 2026 Ma. Elysse B. Alberto. All rights reserved.</p>
   </footer>
 
 </body>
