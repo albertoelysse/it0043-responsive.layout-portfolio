@@ -1,29 +1,30 @@
 /* ==========================================================
    Web Design Portfolio - style.css
+   Purple theme | Flexbox navigation | Media queries
    ========================================================== */
 
-/* Design tokens (custom properties) */
+/* ---------- Design tokens ---------- */
 :root {
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 1rem;
   --space-4: 1.5rem;
-  --space-5: 3rem;
+  --space-5: 2.5rem;
 
-  --color-bg: #f5f7fa;
-  --color-surface: #ffffff;
-  --color-border: #d9dee5;
-  --color-text: #1f2933;
-  --color-text-muted: #52606d;
-  --color-primary: #2563eb;
-  --color-primary-hover: #1d4ed8;
-  --color-on-primary: #ffffff;
+  --color-bg: #2a0a45;
+  --color-surface: #431069;
+  --color-border: #6b2a9e;
+  --color-text: #ffffff;
+  --color-text-muted: #dcc5f2;
+  --color-primary: #d9a8ff;
+  --color-primary-hover: #ecd0ff;
+  --color-on-primary: #2a0a45;
 
-  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-body: Arial, Helvetica, sans-serif;
   --max-width: 60rem;
 }
 
-/* Reset / base */
+/* ---------- Reset / base ---------- */
 *,
 *::before,
 *::after {
@@ -32,6 +33,7 @@
 
 body {
   margin: 0;
+  min-height: 100vh;
   font-family: var(--font-body);
   line-height: 1.6;
   color: var(--color-text);
@@ -48,57 +50,57 @@ img {
   height: auto;
 }
 
-/* Header */
+/* ---------- Header ---------- */
 header {
-  padding: var(--space-5) var(--space-3);
-  text-align: center;
-  background: var(--color-primary);
-  color: var(--color-on-primary);
+  padding: var(--space-4) var(--space-5);
+  background: var(--color-bg);
 }
 
 header h1 {
-  margin-bottom: var(--space-2);
-  font-size: 2.5rem;
+  margin: 0;
+  font-size: 1.8rem;
 }
 
 header p {
-  margin: 0;
-  font-size: 1.1rem;
+  margin: var(--space-1) 0 0;
+  color: var(--color-text-muted);
+  letter-spacing: 0.05em;
 }
 
-/* Main layout */
-main {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: var(--space-4) var(--space-3);
-}
-
-section {
-  margin-bottom: var(--space-5);
-}
-
-/* Navigation */
+/* ---------- Navigation (Flexbox) ---------- */
 nav {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: space-between;
   gap: var(--space-2);
-  padding: var(--space-3);
+  padding: var(--space-3) var(--space-5);
   background: var(--color-surface);
   border-bottom: 1px solid var(--color-border);
 }
 
 nav h2 {
-  flex-basis: 100%;
   margin: 0;
+  font-size: 1.2rem;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 nav a {
+  display: inline-block;
   padding: var(--space-2) var(--space-3);
   border-radius: var(--space-1);
-  text-decoration: none;
   color: var(--color-primary);
-  /* NEW: smooth colour change on hover and focus */
+  font-size: 0.9rem;
+  text-decoration: none;
+  /* smooth colour change on hover and focus */
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
@@ -112,40 +114,80 @@ nav a:focus {
   outline-offset: 2px;
 }
 
-/* Project cards (Grid) */
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-  gap: var(--space-4);
+/* ---------- Page layout ---------- */
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-5) var(--space-3);
+}
+
+main > h2 {
+  margin-bottom: var(--space-4);
+}
+
+/* ---------- Cards (Flexbox row, wraps on small screens) ---------- */
+.card-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
 }
 
 .card {
+  flex: 1 1 18rem;
   padding: var(--space-4);
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--space-2);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+.card h2,
+.card h3 {
+  margin-bottom: var(--space-3);
 }
 
 .card p {
-  color: var(--color-text-muted);
+  margin: 0 0 var(--space-2);
 }
 
-/* Buttons */
+.card ul {
+  margin: 0;
+  padding-left: var(--space-4);
+}
+
+.card li {
+  margin-bottom: var(--space-1);
+}
+
+/* ---------- Skills ---------- */
+.skill {
+  margin-bottom: var(--space-3);
+}
+
+.skill-bar {
+  height: 0.75rem;
+  background: var(--color-bg);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.skill-bar span {
+  display: block;
+  height: 100%;
+  background: var(--color-primary);
+  border-radius: 999px;
+}
+
+/* ---------- Buttons ---------- */
 .button,
 button {
   display: inline-block;
-  padding: var(--space-2) var(--space-3);
+  padding: var(--space-2) var(--space-4);
   border: none;
   border-radius: var(--space-1);
   background: var(--color-primary);
   color: var(--color-on-primary);
   font: inherit;
+  font-weight: bold;
   text-decoration: none;
   cursor: pointer;
   transition: background-color 0.2s ease;
@@ -162,20 +204,15 @@ button:focus {
   outline-offset: 2px;
 }
 
-/* Contact form (Flexbox, one direction: fields stacked) */
+/* ---------- Contact form (Flexbox, one direction: fields stacked) ---------- */
 form {
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
-  max-width: 32rem;
-  padding: var(--space-4);
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--space-2);
 }
 
 label {
-  font-weight: 600;
+  font-weight: bold;
 }
 
 input,
@@ -183,6 +220,8 @@ textarea {
   padding: var(--space-2) var(--space-3);
   border: 1px solid var(--color-border);
   border-radius: var(--space-1);
+  background: var(--color-bg);
+  color: var(--color-text);
   font: inherit;
 }
 
@@ -197,23 +236,52 @@ form button {
   margin-top: var(--space-2);
 }
 
-/* Footer */
+/* ---------- Footer ---------- */
 footer {
-  padding: var(--space-4) var(--space-3);
+  padding: var(--space-4);
   text-align: center;
-  background: var(--color-surface);
-  border-top: 1px solid var(--color-border);
   color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border);
 }
 
-/* Responsive tweaks */
-@media (max-width: 40rem) {
+/* ==========================================================
+   MEDIA QUERIES
+   ========================================================== */
+
+/* Tablets and smaller */
+@media (max-width: 48rem) {
+  header,
+  nav {
+    padding-left: var(--space-3);
+    padding-right: var(--space-3);
+  }
+}
+
+/* Phones */
+@media (max-width: 30rem) {
   header h1 {
-    font-size: 2rem;
+    font-size: 1.4rem;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav ul {
+    width: 100%;
+    flex-direction: column;
   }
 
   nav a {
-    flex: 1 1 auto;
-    text-align: center;
+    display: block;
+  }
+
+  .card {
+    flex-basis: 100%;
+  }
+
+  form button {
+    align-self: stretch;
   }
 }
